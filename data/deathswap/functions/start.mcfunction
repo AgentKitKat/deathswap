@@ -13,6 +13,9 @@ execute if score monsters settings matches 0 run gamerule doMobSpawning false
 execute if score monsters settings matches 1 run gamerule doMobSpawning true
 execute if score regen settings matches 0 run gamerule naturalRegeneration false
 execute if score regen settings matches 1 run gamerule naturalRegeneration true
+tag @a[team=Aqua] add player
+tag @a[team=Gray] add player
+tag @a[team=Purple] add player
 tag @a[team=Red] add player
 tag @a[team=Blue] add player
 tag @a[team=Orange] add player
@@ -29,5 +32,8 @@ gamemode survival @a[team=Red]
 gamemode survival @a[team=Blue]
 gamemode survival @a[team=Orange]
 gamemode survival @a[team=Green]
-gamemode spectator @a[team=!Green,team=!Orange,team=!Blue,team=!Red]
+gamemode survival @a[team=Aqua]
+gamemode survival @a[team=Gray]
+gamemode survival @a[team=Purple]
+gamemode spectator @a[team=!Green,team=!Orange,team=!Blue,team=!Red,team=!Aqua,team=!Gray,team=!Purple]
 tellraw @a[gamemode=spectator] ["",{"text":"You are now spectating! "},{"text":"Teleport to ","color":"green","clickEvent":{"action":"run_command","value":"/tp @s @a[team=Green,limit=1]"}},{"selector":"@a[team=Green]","color":"green","clickEvent":{"action":"run_command","value":"/tp @s @a[team=Green,limit=1]"}},{"text":" or ","color":"none"},{"text":"Teleport to ","color":"gold","clickEvent":{"action":"run_command","value":"/tp @s @a[team=Orange,limit=1]"}},{"selector":"@a[team=Orange]","color":"gold","clickEvent":{"action":"run_command","value":"/tp @s @a[team=Orange,limit=1]"}}]
